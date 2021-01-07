@@ -11,7 +11,7 @@ use Illuminate\Notifications\Notifiable;
 class Users extends Model
 {
     use HasFactory, Notifiable;
-    public $table = 'users';
+    public $table = "users";
 
     /**
      * The attributes that are mass assignable.

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Users;
 use Illuminate\Http\Request;
 use App\Http\Requests\Signup;
@@ -11,13 +10,13 @@ use App\Http\Requests\Signup;
 class SignupController extends Controller
 {
     public function index(){
-        return view( 'welcome');
+        return view( 'signup');
     }
 
     public function store(Signup $request){
         $validated = $request->validated();
         $users = Users::create(request(['name','email','password']));
-        return redirect()->to('/home');
+        return redirect()->to('/signup');
 
     }
 

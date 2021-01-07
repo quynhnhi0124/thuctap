@@ -13,5 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home',[\App\Http\Controllers\SignupController::class, 'index']);
-Route::post('/home',[\App\Http\Controllers\SignupController::class, 'store'])->name('signup');
+Route::get('/signup',[\App\Http\Controllers\SignupController::class, 'index']);
+Route::post('/signup',[\App\Http\Controllers\SignupController::class, 'store']);
+
+Route::get('/login', [\App\Http\Controllers\LoginController::class, 'index']);
+Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
+
+Route::get('/logout', [\App\Http\Controllers\LoginController::class, 'logout']);
+
+

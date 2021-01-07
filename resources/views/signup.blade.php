@@ -13,7 +13,7 @@
 <body>
 <div class="container">
 <div class="signup">
-    <form method = "POST" action="{{url('/home')}}" style="width: 60%;">
+    <form method = "POST" action="{{url('/signup')}}" style="width: 60%;">
         @csrf
         <h3><b>Signup</b></h3>
         <div class="row">
