@@ -5,30 +5,37 @@ namespace App\Http\Controllers;
 use App\Models\Users;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-
     public function index (){
         return view('login');
     }
 
     public function login(LoginRequest $request){
         $validated = $request->validated();
-        $credenticals = [
+        $login = [
             'name' => $request -> name,
             'password' => $request -> password,
         ];
-
-        if(Auth::attempt($credenticals)){
-            console.log("thanh cong");
-            return redirect('/login');
+        if(Auth::attempt($login)) {
+            return view('home');
         }else{
-            return redirect()->back()->with('status', 'Email hoặc Password không chính xác');
+            echo("sai");
         }
     }
-    public function logout(){
-        Auth::logout();
-    }
+
+//    public function login(Request $request){
+//        $user = Users::where('name', $request->name)
+//            ->where('password', $request->password)
+//            ->first();
+//        Auth::login($user);
+//        return view('home');
+//    }
+        public function logout(){
+            Auth::logout();
+            return redirect('home');
+        }
 }
+

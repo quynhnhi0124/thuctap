@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\Users as Authenticatable;
+//use Illuminate\Foundation\Auth\User;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
-class Users extends Model
+class Users extends Model implements Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable,AuthenticableTrait;
     public $table = "users";
 
     /**
