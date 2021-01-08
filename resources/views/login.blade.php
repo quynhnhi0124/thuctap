@@ -2,7 +2,7 @@
 <title>Login</title>
 @section('content')
     <div class="signup">
-        <form method = "POST" action="{{url('/home/login')}}" style="width: 60%;">
+        <form action="{{url('/home')}}" style="width: 60%;">
             @csrf
             <h3><b>Login</b></h3>
             <div class="row">
